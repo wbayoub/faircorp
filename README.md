@@ -1,5 +1,5 @@
 # faircorp
-Link of the Github :https://github.com/wbayoub
+Link of the Github : https://github.com/wbayoub/faircorp
 
 The application can't work due to the permission denied of the gradlew and now git fail to push because i change something on github with doing it on the local 
 
