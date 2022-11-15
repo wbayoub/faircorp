@@ -12,9 +12,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
-/*
 @Configuration
-*/
 public class SpringSecurityConfig {
 
     private static final String ROLE_USER = "USER";

@@ -1,5 +1,6 @@
 package com.emse.spring.faircorp.dao;
 
+import com.emse.spring.faircorp.model.Building;
 import com.emse.spring.faircorp.model.Heater;
 import com.emse.spring.faircorp.model.Room;
 import com.emse.spring.faircorp.model.Window;
@@ -39,6 +40,13 @@ public class BuildingDaoCustomImpl implements BuildingDaoCustom{
             heaters.addAll(rooms.get(i).getHeaters());
         }
         return heaters;
+    }
+    @Override
+    public Building findByID(Long id){
+        String jpql = "select b from Building b where b.id = :id ";
+        return em.createQuery(jpql, Building.class)
+                .setParameter("id", id)
+                .getSingleResult();
     }
 
 }

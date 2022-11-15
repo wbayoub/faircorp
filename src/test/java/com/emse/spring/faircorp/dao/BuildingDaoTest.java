@@ -49,4 +49,14 @@ public class BuildingDaoTest {
                 .extracting("id", "heater_status","power")
                 .contains(Tuple.tuple(-9L, HeaterStatus.ON,null),Tuple.tuple(-10L, HeaterStatus.ON,2000));
     }
+    @Test
+    public void shouldFindAllHeaters() {
+        List<Heater> heaters = buildingDao.findHeatersByBuilding(-9L);
+        Assertions.assertThat(heaters).hasSize(2);
+    }
+    @Test
+    public void findRoomsByBuilding() {
+        List<Room> rooms = buildingDao.findRoomsByBuilding(-9L);
+        Assertions.assertThat(rooms).hasSize(2);
+    }
 }

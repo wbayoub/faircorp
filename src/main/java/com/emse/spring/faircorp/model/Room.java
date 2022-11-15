@@ -4,6 +4,7 @@ import com.emse.spring.faircorp.dto.HeaterDto;
 import com.emse.spring.faircorp.dto.WindowDto;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -100,9 +101,20 @@ public class Room {
 
     public Room(){
     }
+
+    public Room(String name){
+        this.name=name;
+    }
+
     public Room(Integer floor,String name){
         this.floor=floor;
         this.name=name;
+    }
+
+    public Room(String name,Integer floor,Building building){
+        this.floor=floor;
+        this.name=name;
+        this.building=building;
     }
     public Room(Integer floor,String name,Building building, Double current_temperature ,Double target_temperature){
         this.floor=floor;

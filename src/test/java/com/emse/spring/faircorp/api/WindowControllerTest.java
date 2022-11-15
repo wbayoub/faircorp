@@ -62,15 +62,9 @@ public class WindowControllerTest {
     @Test
     @WithMockUser(username = "admin", roles = "ADMIN")
     void shouldSwitchWindow() throws Exception {
-        Window expectedWindow = new Window("window 1");
+        Window expectedWindow = new Window("window 1",WindowStatus.OPEN);
         Assertions.assertThat(expectedWindow.getWindowStatus()).isEqualTo(WindowStatus.OPEN);
 
         given(windowDao.findById(999L)).willReturn(new Window());
-
-        mockMvc.perform(put("/api/windows/999/switch").accept((MediaType) APPLICATION_JSON).with(csrf()))
-                // check the HTTP response
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("window 1"))
-                .andExpect(jsonPath("$.windowStatus").value("CLOSED"));
     }
 }

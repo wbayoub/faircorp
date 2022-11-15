@@ -1,6 +1,7 @@
 package com.emse.spring.faircorp.model;
 
 import com.emse.spring.faircorp.dto.RoomDto;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,6 +13,8 @@ public class Building {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable=false)
+    private String name;
     private Double outsideTemperature;
 
     public Double getOutsideTemperature() {
@@ -30,6 +33,10 @@ public class Building {
 
     @OneToMany(mappedBy = "building")
     private Set<Room> rooms;
+
+    public Building(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
